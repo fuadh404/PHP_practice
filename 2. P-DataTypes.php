@@ -161,7 +161,7 @@ $ass_arr = [
         echo "\n \n";
     }
    
-
+    echo "------------------------ \n";
 
 // TASK 7: COMPOUND TYPES - MULTIDIMENSIONAL ARRAYS
 // Task: Create a multidimensional array representing a small classroom with students and their scores in different subjects.
@@ -169,6 +169,31 @@ $ass_arr = [
 // Hint: Multidimensional arrays are arrays within arrays.
 
 // Your code here
+
+$classroom = [
+
+    "Student1" => [
+        "Bangla" => 21,
+        "English" => 22,
+        "Math" => 20
+    ],
+
+    "Student2" => [
+        "Bangla" => 23,
+        "English" => 24,
+        "Math" => 25
+    ]
+];
+
+foreach ($classroom as $key => $info) {
+    echo $key . "\n \n";
+
+    foreach($info as $k => $i) {
+        echo "$k = $i" . "\n";
+    }
+
+    echo "\n";
+}
 
 
 // TASK 8: COMPOUND TYPES - OBJECTS
@@ -178,6 +203,28 @@ $ass_arr = [
 
 // Your code here
 
+class Person {
+    public $name;
+    public $age;
+    public $job;
+
+    public function introduce() {
+        echo "Hi, my name is $this->name. I am $this->age years old and I am $this->job. \n";
+    }
+
+    public function getInfo() {
+        return "Name: $this->name | Age: $this->age | Job: $this->job";
+    }
+}
+
+$person1 = new Person();
+
+$person1->name = "John Doe";
+$person1->age = 28;
+$person1->job = "Software Engineer";
+
+$person1->introduce();
+echo $person1->getInfo();
 
 // TASK 9: SPECIAL TYPES - NULL
 // Task: Demonstrate the difference between null, undefined variable, and empty string.
@@ -186,6 +233,20 @@ $ass_arr = [
 
 // Your code here
 
+$nullVar = null;
+$emptyString = "";
+
+echo "------using isset()------ \n";
+
+echo "nullVar = " . (isset($nullVar)? "set" : "not set") . "\n";
+echo "emptySrting = " . (isset($emptyString) ? "set" : "not set") . "\n";
+echo "undefinedVar = " . (isset($undefinedVar) ? "set" : "not set") . "\n";
+
+echo "<br>--- Using empty() --- \n";
+echo "nullVar: " . (empty($nullVar) ? "Empty" : "Not empty") . "\n";
+echo "emptyString: " . (empty($emptyString) ? "Empty" : "Not empty") . "\n";
+echo "undefinedVar: " . (empty($undefinedVar) ? "Empty" : "Not empty") . "\n";
+
 
 // TASK 10: SPECIAL TYPES - RESOURCE
 // Task: Open a file as a resource, and demonstrate how to check if a variable is a resource type.
@@ -193,6 +254,17 @@ $ass_arr = [
 
 // Your code here
 
+$file = fopen("/home/alpine/Documents/Todo.text", "w");
+
+if(is_resource($file)) {
+    echo "$file is a resource.";
+
+    echo "Resource Type: " . get_resource_type($file) . "\n";
+} else {
+    echo "Failed to open file as a resource type";
+}
+
+fclose($file);
 
 // TASK 11: TYPE JUGGLING AND CONVERSION
 // Task: Demonstrate PHP's automatic type juggling with examples of different types in operations.
@@ -201,12 +273,73 @@ $ass_arr = [
 
 // Your code here
 
+echo "--- Type Juggling Examples ---\n";
+
+$result1 = "10" + 5;
+echo '"10" + 5 = ' . $result1 . " (Type: " . gettype($result1) . ")\n";
+
+$result2 = true + 3;
+echo 'true + 3 = ' . $result2 . " (Type: " . gettype($result2) . ")\n";
+
+$result3 = "7 apples" + 5;
+echo '"7 apples" + 5 = ' . $result3 . " (Type: " . gettype($result3) . ")\n";
+
+$result4 = 3.5 + "2.5";
+echo '3.5 + "2.5" = ' . $result4 . " (Type: " . gettype($result4) . ")\n";
+
+echo "\n--- Type Casting Examples ---\n";
+
+$str = "123.45";
+$castInt = (int)$str;
+$castFloat = (float)$str;
+
+echo "Casting '123.45' to int = $castInt (Type: " . gettype($castInt) . ")\n";
+echo "Casting '123.45' to float = $castFloat (Type: " . gettype($castFloat) . ")\n";
+
+$num = 42;
+$castString = (string)$num;
+
+echo "Casting 42 to string = '$castString' (Type: " . gettype($castString) . ")\n";
+
+$bool = (bool)0;
+echo "Casting 0 to bool = " . ($bool ? "true" : "false") . "\n";
+
+
 
 // TASK 12: TYPE CHECKING
 // Task: Write code that demonstrates different ways to check a variable's type (is_int, is_string, gettype, instanceof).
 // Hint: PHP provides various functions to check variable types.
 
 // Your code here
+
+$number = 42;
+$text = "Hello, PHP!";
+$flag = true;
+$price = 19.99;
+$array = [1, 2, 3];
+
+echo "--- Using is_type() Functions ---\n";
+
+echo "Is \$number an integer? " . (is_int($number) ? "Yes" : "No") . "\n";
+echo "Is \$text a string? " . (is_string($text) ? "Yes" : "No") . "\n";
+echo "Is \$flag a boolean? " . (is_bool($flag) ? "Yes" : "No") . "\n";
+echo "Is \$price a float? " . (is_float($price) ? "Yes" : "No") . "\n";
+echo "Is \$array an array? " . (is_array($array) ? "Yes" : "No") . "\n";
+
+echo "\n--- Using gettype() ---\n";
+echo "Type of \$text: " . gettype($text) . "\n";
+echo "Type of \$price: " . gettype($price) . "\n";
+
+echo "\n--- Using instanceof (for objects) ---\n";
+
+class Personn {
+    public $name;
+}
+
+$person = new Personn();
+
+echo "Is \$person an instance of Person? " . ($person instanceof Personn ? "Yes" : "No") . "\n";
+echo "Is \$text an instance of Person? " . ($text instanceof Personn ? "Yes" : "No") . "\n";
 
 
 // BONUS CHALLENGE: WORKING WITH MIXED TYPES
