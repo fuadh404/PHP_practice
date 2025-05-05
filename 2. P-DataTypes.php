@@ -19,6 +19,16 @@
 
 // Your code here
 
+$decimal = 100;
+$hexadecimal = 0x24;
+$octal = 0112;
+$binary = 0b1011101;
+
+var_dump($decimal);
+var_dump($hexadecimal);
+var_dump($octal);
+var_dump($binary);
+
 
 // TASK 2: SCALAR TYPES - FLOATING POINT NUMBERS
 // Task: Create variables with floating point numbers using scientific notation and regular notation.
@@ -26,6 +36,19 @@
 // Hint: Use e notation for scientific representation (e.g., 1.2e3)
 
 // Your code here
+
+$regular = 12.34;
+$scientific = 1.2e3;
+
+$sum = 1.2 + 3.4;
+
+echo "Regular Float: " . $regular . '\n';
+echo "Scientific Float: " . $scientific . '\n';
+echo "1.2 + 3.4 = " . $sum . '\n';
+
+var_dump($sum);
+
+echo "------------------------ \n";
 
 
 // TASK 3: SCALAR TYPES - BOOLEAN
@@ -35,6 +58,32 @@
 
 // Your code here
 
+$boolTrue = true;
+$boolFalse = false;
+
+$zero = 0;
+$emptyString = "";
+$nullValues = null;
+$emptyArray = [];
+$nonEmptyString = "Hello";
+$positiveNumber = 10;
+$negativeNumber = -4;
+$nonEmptyArray = [1,2,3];
+
+var_dump($boolTrue);
+var_dump($boolFalse);
+
+var_dump((bool)$zero);
+var_dump((bool)$emptyString);
+var_dump((bool)$nullValues);
+var_dump((bool)$emptyArray);
+var_dump((bool)$nonEmptyString);
+var_dump((bool)$positiveNumber);
+var_dump((bool)$negativeNumber);
+var_dump((bool)$nonEmptyArray);
+
+
+echo "------------------------ \n";
 
 // TASK 4: SCALAR TYPES - STRING
 // Task: Create strings using different quoting methods (single quotes, double quotes, heredoc, nowdoc).
@@ -43,6 +92,27 @@
 
 // Your code here
 
+$name = "Alpine Swift";
+$singleQuote = 'Hello, $name'; //single quote e variable detect kore na
+$doubleQuote = "Hello, $name"; 
+
+$heredoc = <<<TEXT
+This is Heredoc.
+Hello, $name!
+TEXT;
+
+//nowdoc ew variable detect kore na.. 
+$nowdoc = <<<'TEXT'
+This is nowdoc.
+Hello, $name!
+TEXT;
+
+echo $singleQuote . "\n";
+echo $doubleQuote . "\n";
+echo $heredoc . "\n";
+echo $nowdoc . "\n";
+
+echo "------------------------ \n";
 
 // TASK 5: COMPOUND TYPES - INDEXED ARRAYS
 // Task: Create an indexed array of your favorite foods and loop through it to display each item.
@@ -50,6 +120,15 @@
 
 // Your code here
 
+$fav_food = ["biriany", "meat", "yoghurt"];
+
+$number = count($fav_food);
+
+for($i = 0; $i < $number; $i++) {
+    echo $fav_food[$i]."\n";
+}
+
+echo "------------------------ \n";
 
 // TASK 6: COMPOUND TYPES - ASSOCIATIVE ARRAYS
 // Task: Create an associative array representing a person's details (name, age, job, etc.)
@@ -57,6 +136,31 @@
 // Hint: Associative arrays use custom keys instead of numeric indexes.
 
 // Your code here
+
+$ass_arr = [
+
+    "Person_1" => [
+        "name" => "john",
+        "age" => 21,
+        "job" => "student"
+    ], 
+    "person_2" => [
+        "name" => "Doe",
+        "age" => 28,
+        "job" => "Software Engineer"
+    ]
+
+    ];
+
+    foreach($ass_arr as $key => $info){
+        echo "$key: \n \n" ;
+        foreach($info as $k => $i) {
+            echo "$k is $i" . "\n";
+        }
+
+        echo "\n \n";
+    }
+   
 
 
 // TASK 7: COMPOUND TYPES - MULTIDIMENSIONAL ARRAYS
