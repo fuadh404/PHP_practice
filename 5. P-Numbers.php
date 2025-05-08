@@ -17,6 +17,21 @@
 
 // Your code here
 
+$int = 10;
+$float = 12.99;
+$scientific = 1.2e4;
+$hex = 0x23;
+$octal = 023;
+$binary = 0b11010100;
+
+var_dump($int);
+var_dump($float);
+var_dump($scientific);
+var_dump($hex);
+var_dump($octal);
+var_dump($binary);
+
+echo "------------------------ \n";
 
 // TASK 2: BASIC ARITHMETIC OPERATIONS
 // Task: Create number variables and demonstrate all basic arithmetic operations:
@@ -25,6 +40,24 @@
 
 // Your code here
 
+$a = 10;
+$b = 20;
+
+$sum = $a + $b;
+$subs = $a - $b;
+$multi = $a * $b;
+$div = $a / $b;
+$mod = $b % $a;
+$power = $b**$a;
+
+echo $sum . "\n";
+echo $subs. "\n";
+echo $multi."\n";
+echo $div. "\n";
+echo $mod. "\n";
+echo $power. "\n";
+
+echo "------------------------ \n";
 
 // TASK 3: ASSIGNMENT OPERATORS WITH NUMBERS
 // Task: Demonstrate all arithmetic assignment operators (+=, -=, *=, /=, %=, **=).
@@ -32,6 +65,20 @@
 
 // Your code here
 
+echo $a += $b;
+echo "\n";
+echo $a -= $b;
+echo "\n";
+echo $a *= $b;
+echo "\n";
+echo $a /= $b;
+echo "\n";
+echo $a %= $b;
+echo "\n";
+echo $a **= $b;
+echo "\n";
+
+echo "------------------------ \n";
 
 // TASK 4: INCREMENT AND DECREMENT
 // Task: Demonstrate both prefix (++$x, --$x) and postfix ($x++, $x--) increment/decrement operators.
@@ -40,6 +87,24 @@
 
 // Your code here
 
+$x = 100;
+echo $x++ . "\n";
+echo $x . "\n";
+
+
+$y = 100;
+echo $y-- . "\n";
+echo $y . "\n";
+
+$p = 100;
+echo --$p . "\n";
+echo $p . "\n";
+
+$q = 100;
+echo ++$q . "\n";
+echo $q . "\n";
+
+echo "------------------------ \n";
 
 // TASK 5: COMPARISON OF NUMBERS
 // Task: Compare numbers using various comparison operators (==, ===, !=, <>, !==, <, >, <=, >=, <=>)
@@ -48,6 +113,49 @@
 
 // Your code here
 
+$e = 11;
+$f = "11";
+
+echo"$e == $f : ";
+var_dump($e == $f) . "\n";
+
+echo"$e === $f : ";
+var_dump($e === $f) . "\n";
+
+echo"$e != $f : ";
+var_dump($e != $f) . "\n";
+
+echo"$e <> $f : ";
+var_dump($e <> $f) . "\n";
+
+echo"$e == $f : ";
+var_dump($e !== $f) . "\n";
+
+echo"$e > $f : ";
+var_dump($e > $f) . "\n";
+
+echo"$e < $f : ";
+var_dump($e < $f) . "\n";
+
+echo"$e >= $f : ";
+var_dump($e >= $f) . "\n";
+
+echo"$e <= $f : ";
+var_dump($e <= $f) . "\n";
+
+$g = 1;
+$h = 2;
+
+echo"$g <=> $h : ";
+var_dump($g <=> $h) . "\n";
+
+echo"$g <=> $g : ";
+var_dump($g <=> $g) . "\n";
+
+echo"$h <=> $g : ";
+var_dump($h <=> $g) . "\n";
+
+echo "------------------------ \n";
 
 // TASK 6: NUMBER PRECISION AND FLOATING-POINT ISSUES
 // Task: Demonstrate floating-point precision issues in PHP with examples
@@ -56,6 +164,36 @@
 
 // Your code here
 
+$num1 = 0.1;
+$num2 = 0.2;
+
+$sum = $num1 + $num2;
+
+if ($sum == 0.3) {
+    echo "Equal to 0.3 \n";
+} else {
+    echo "Not equal to 0.3 \n";
+    echo "So the sum is: $sum \n";
+}
+
+
+$sum2 = round($num1 + $num2, 1);
+echo $sum2 . "\n";
+if ($sum2 == 0.3) {
+    echo "Now it matches 0.3\n";
+}
+
+
+$sum3 = $num1 + $num2;
+if ($sum3 == 0.3) {
+    echo "Equal to 0.3 \n"; 
+} else {
+    $num_for = number_format($sum3, 1);
+    echo "Now equal to 0.3 after applying number format \n";
+}
+
+$sum4 = bcadd($num1 + $num2, 1);
+echo "After applying bcadd is equal to 0.3 \n";
 
 // TASK 7: FORMATTING NUMBERS
 // Task: Format numbers using different methods:
@@ -66,6 +204,25 @@
 
 // Your code here
 
+$number = 127343.89375;
+
+echo "number Format(default): " . number_format($number) . "\n";
+echo "number Format(decimal): " . number_format($number, 2) . "\n";
+echo "number Format(custom 1): " . number_format($number, 2, ',') . "\n";
+echo "number Format(custom 2): " . number_format($number, 2, ',', ' ') . "\n";
+
+//printf
+
+printf("%.2f", $number);
+echo "\n";
+printf("%012.2f", $number);
+echo "\n"; // "%012.2f" e 012 mane 12 ta caracter er kom hole bakigulo 0 diye puron koro
+
+//sprintf return kore echo kore na
+$formatted = sprintf("%.3f", $number);
+echo $formatted . "\n";
+
+echo "--------------------- \n";
 
 // TASK 8: MATHEMATICAL FUNCTIONS - ROUNDING
 // Task: Demonstrate these rounding functions with various examples:
@@ -76,6 +233,33 @@
 
 // Your code here
 
+$num1 = 4.3;
+$num2 = 4.5;
+$num3 = 4.7;
+$num4 = -4.3;
+$num5 = -4.7;
+
+// 1️⃣ round() → সাধারন রাউন্ডিং (nearest whole number)
+echo "round(4.3): " . round($num1) . "\n";      // 4
+echo "round(4.5): " . round($num2) . "\n";      // 5
+echo "round(4.7): " . round($num3) . "\n";      // 5
+
+// 2️⃣ round() with precision (দশমিকের পরে কত ঘর)
+echo "round(4.375, 2): " . round(4.375, 2) . "\n";  // 4.38
+
+// 3️⃣ round() with mode
+echo "round(4.5, 0, PHP_ROUND_HALF_UP): " . round(4.5, 0, PHP_ROUND_HALF_UP) . "\n";   // 5
+echo "round(4.5, 0, PHP_ROUND_HALF_DOWN): " . round(4.5, 0, PHP_ROUND_HALF_DOWN) . "\n"; // 4
+echo "round(4.5, 0, PHP_ROUND_HALF_EVEN): " . round(4.5, 0, PHP_ROUND_HALF_EVEN) . "\n"; // 4
+echo "round(5.5, 0, PHP_ROUND_HALF_EVEN): " . round(5.5, 0, PHP_ROUND_HALF_EVEN) . "\n"; // 6
+
+// 4️⃣ ceil() → সবসময় উপরের দিকে রাউন্ড করে
+echo "ceil(4.3): " . ceil($num1) . "\n";        // 5
+echo "ceil(-4.3): " . ceil($num4) . "\n";       // -4
+
+// 5️⃣ floor() → সবসময় নিচের দিকে রাউন্ড করে
+echo "floor(4.7): " . floor($num3) . "\n";      // 4
+echo "floor(-4.7): " . floor($num5) . "\n";     // -5
 
 // TASK 9: MATHEMATICAL FUNCTIONS - MIN, MAX, AND RANGES
 // Task: Use min(), max(), and range() functions in various scenarios:
@@ -86,6 +270,23 @@
 
 // Your code here
 
+echo ("min: 3, 4, 5 is: ") . min(3,4,5). "\n";
+echo ("max: 3, 4, 5 is: ") . max(3,4,5). "\n";
+
+$numberr = [10,20,30];
+
+echo ("Min Number is: ") . min($numberr) . "\n"; 
+echo ("Max Number is: ") . max($numberr) . "\n";
+
+$range1 = range(1, 10);
+$range2 = range(0, 20, 5);
+
+print_r($range1);
+print_r($range2);
+
+$letter_range = range('a', 'z');
+print_r($letter_range);
+
 
 // TASK 11: RANDOM NUMBER GENERATION
 // Task: Generate random numbers using different methods:
@@ -95,6 +296,15 @@
 // Hint: random_int() is more secure but slower than mt_rand().
 
 // Your code here
+
+echo "Random Number is: " . rand() . "\n";
+echo "Random Number (1 - 100) is: " . rand(1,100) . "\n";
+
+echo "mt_rand: " . mt_rand() . "\n";
+echo "mt_rand with limit : " . mt_rand(1, 100) . "\n";
+
+echo "randon_int: " . random_int(1,50) . "\n";
+
 
 
 
