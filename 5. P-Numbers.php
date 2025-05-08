@@ -306,7 +306,19 @@ echo "mt_rand with limit : " . mt_rand(1, 100) . "\n";
 echo "randon_int: " . random_int(1,50) . "\n";
 
 
+//OTP_GENERATOR
 
+
+function generateOTP($length = 6) {
+    $otp = '';
+    for ($i = 0; $i < $length; $i++) {
+        $otp .= random_int(0, 9);  // প্রতিবার 0–9 এর মধ্যে secure random digit
+    }
+    return $otp;
+}
+
+// উদাহরণ:
+echo "Your OTP is: " . generateOTP(6) . "\n";
 
 
 ?>

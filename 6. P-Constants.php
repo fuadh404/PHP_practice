@@ -16,6 +16,20 @@
 
 // Your code here
 
+define ("SITE_NAME", "LearnPHP");
+echo "Site: " . SITE_NAME . "\n";
+
+define ("MAX_USER", 100 );
+echo "Max User: " . MAX_USER . "\n";
+
+define("IS_ACTIVE", true);
+echo "Is Active? " . (IS_ACTIVE ? "yes" : "no") . "\n";
+
+define ("COLORS", ["red", "green", "blue"]);
+print_r (COLORS);
+
+
+
 
 // TASK 2: DEFINING CONSTANTS USING CONST KEYWORD
 // Task: Define constants using the const keyword and explain when to use const vs define().
@@ -23,6 +37,27 @@
 // Hint: const can only be used in the global scope or inside class definitions, not inside functions or conditionals.
 
 // Your code here
+
+const SITE = "LearnPHP";
+const VERSION = 1.1;
+const DEBUG_MODE = true;
+
+echo "Site: " . SITE . "\n";
+echo "Version: " . VERSION . "\n";
+echo "Debug? " . (DEBUG_MODE ? "Yes" : "No") . "\n";
+
+
+const COUNT = 10;
+const TOTAL = COUNT * 2;
+
+echo TOTAL . "\n"; 
+
+//Const er moddhe variable use kora jay na, tobe varisble er moddhe const use kora jay
+
+/* $count = 20;
+const TOTAL_COUNT = $count * 10;
+echo TOTAL_COUNT; */
+
 
 
 // TASK 3: PREDEFINED CONSTANTS
@@ -32,6 +67,11 @@
 
 // Your code here
 
+echo "PHP_VERSION: " . PHP_VERSION . "\n";
+echo "PHP_OS: " . PHP_OS . "\n";
+echo "__FILE__: " . __FILE__ . "\n";
+echo "__LINE__: " . __LINE__ . "\n";
+echo "__DIR__:" . __DIR__ . "\n";
 
 // TASK 4: MAGIC CONSTANTS
 // Task: Demonstrate the use of PHP's magic constants 
@@ -42,6 +82,10 @@
 // Your code here
 
 
+
+
+
+
 // TASK 5: CONSTANT ARRAYS
 // Task: Create constant arrays using both define() and const. 
 //       Access and display individual elements of the arrays.
@@ -49,6 +93,14 @@
 
 // Your code here
 
+define ("FRUITS", ["apple", "banana", "mango"]);
 
+echo "First Fruit is: " . FRUITS[0] . "\n";
+echo "Last Fruit is: " . FRUITS[2] . "\n";
+
+const COLOURS = ["red", "green", "Blue"];
+
+echo "First Colour is: " . COLOURS[0] . "\n";
+echo "Second Colour is: " . COLOURS[1] . "\n";
 
 ?>
