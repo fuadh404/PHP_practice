@@ -41,6 +41,28 @@
 
 // Your code here
 
+$is_raining = true;
+$temperature = 15;
+
+if ($is_raining) {
+    echo "It is raining. \n";
+
+    if($temperature < 20) {
+        echo "ware a raincoat and warm cloath.\n";
+    } else {
+        echo "Just carry an umbrella \n";
+    }
+} else {
+    echo "Its not raining. \n";
+
+    if($temperature < 20) {
+        echo "ware something warm \n";
+    } else {
+        echo "Dress carefully \n";
+    }
+}
+
+
 
 // TASK 5: LOGICAL OPERATORS IN CONDITIONS
 // Task: Create variables for a username and password. Write a condition using logical operators
@@ -49,6 +71,14 @@
 
 // Your code here
 
+$username = "john";
+$password = "pass123ww";
+
+if(!empty($username) && strlen($password) >= 8) {
+    echo "Login Successfully \n";
+} else {
+    echo "Invalid username and password! \n";
+}
 
 // TASK 6: SWITCH STATEMENT BASICS
 // Task: Create a variable containing a day of the week (as a number 1-7).
@@ -56,6 +86,36 @@
 // Hint: switch (variable) { case value: code; break; ... default: code; }
 
 // Your code here
+
+
+$day_number = 3; // তুমি এখানে 1 থেকে 7 এর মধ্যে যেকোনো সংখ্যা দিতে পারো
+
+switch ($day_number) {
+    case 1:
+        echo "Sunday\n";
+        break;
+    case 2:
+        echo "Monday\n";
+        break;
+    case 3:
+        echo "Tuesday\n";
+        break;
+    case 4:
+        echo "Wednesday\n";
+        break;
+    case 5:
+        echo "Thursday\n";
+        break;
+    case 6:
+        echo "Friday\n";
+        break;
+    case 7:
+        echo "Saturday\n";
+        break;
+    default:
+        echo "Invalid day number (must be 1-7)\n";
+}
+
 
 
 // TASK 7: SWITCH WITH MULTIPLE CASES
@@ -67,12 +127,78 @@
 // Your code here
 
 
+$month = 12; // তুমি এখানে 1-12 এর মধ্যে যেকোনো মান দিতে পারো
+
+switch ($month) {
+    case 12:
+    case 1:
+    case 2:
+        echo "❄️ Season: Winter\n";
+        break;
+
+    case 3:
+    case 4:
+    case 5:
+        echo "🌸 Season: Spring\n";
+        break;
+
+    case 6:
+    case 7:
+    case 8:
+        echo "☀️ Season: Summer\n";
+        break;
+
+    case 9:
+    case 10:
+    case 11:
+        echo "🍂 Season: Fall\n";
+        break;
+
+    default:
+        echo "⚠️ Invalid month number! Please enter 1–12.\n";
+}
+
+
 // TASK 13: EMPTY AND ISSET CHECKS
 // Task: Create variables with different states (set, unset, null, empty string, zero, etc.).
 //       Write conditions using empty(), isset(), and is_null() to demonstrate their differences.
 // Hint: empty() checks if a variable is empty (0, "", null, false, etc.), isset() checks if a variable is declared and not null.
 
 // Your code here
+
+// বিভিন্ন রকমের ভ্যারিয়েবল তৈরি করছি
+$a = 0;
+$b = "";
+$c = null;
+$d = false;
+$e = "Hello";
+$f = [];      // empty array
+
+// unset variable
+// $g is never declared
+
+echo "----- isset() -----\n";
+var_dump(isset($a));  // ✅ true (set and not null)
+var_dump(isset($b));  // ✅ true
+var_dump(isset($c));  // ❌ false (set but null)
+var_dump(isset($g));  // ❌ false (never declared)
+
+echo "\n----- empty() -----\n";
+var_dump(empty($a));  // ✅ true (0 is considered empty)
+var_dump(empty($b));  // ✅ true ("" is empty)
+var_dump(empty($c));  // ✅ true (null is empty)
+var_dump(empty($d));  // ✅ true (false is empty)
+var_dump(empty($e));  // ❌ false ("Hello" is not empty)
+var_dump(empty($f));  // ✅ true (empty array)
+var_dump(empty($g));  // ✅ true (even undeclared is empty)
+
+echo "\n----- is_null() -----\n";
+var_dump(is_null($a));  // ❌ false
+var_dump(is_null($b));  // ❌ false
+var_dump(is_null($c));  // ✅ true
+// var_dump(is_null($g)); // ⚠️ Error: undefined variable (so we won't call this)
+
+
 
 
 // TASK 15: CONDITIONAL ASSIGNMENTS
@@ -82,6 +208,37 @@
 // Hint: Different conditional assignment techniques are appropriate for different situations.
 
 // Your code here
+
+$age = 20;
+$status = "";
+
+if ($age >= 18) {
+    $status = "Adult";
+} else {
+    $status = "Minor";
+}
+
+echo "Status (if-else): $status\n";
+
+
+echo $stat = ($age >= 18) ? "Adult" : "Minor" . "\n";
+
+
+echo "------------------ \n";
+
+$username = $username ?? "Guest"; // যদি না পাওয়া যায়, তাহলে "Guest"
+
+echo "Hello, $username!\n";
+
+echo "------------------ \n";
+
+$input = "";
+$output = $input ?: "Default Value"; // যদি $input ফাঁকা হয়, তাহলে "Default Value"
+
+echo "Output (shorthand): $output\n";
+
+
+
 
 
 // TASK 16: ERROR HANDLING CONDITIONS
